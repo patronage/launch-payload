@@ -1,0 +1,18 @@
+services:
+  db:
+    container_name: launch-payload-db
+    image: postgres:16
+    ports:
+      - '5434:5432' # Unique Postgres Port
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # - ./init-scripts:/docker-entrypoint-initdb.d
+    restart: 'no'
+    environment:
+      POSTGRES_PASSWORD: launch-payload
+      POSTGRES_USER: root
+      POSTGRES_MULTIPLE_SCHEMAS: 'public'
+      POSTGRES_SCHEMA_SEARCH_PATH: 'public'
+
+volumes:
+  db_data: {}

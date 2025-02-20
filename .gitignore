@@ -1,0 +1,7 @@
+.patronage/
+payload-sample/
+node_modules
+.wrangler
+.dev.vars
+**/*.backup
+**/tmp/
