@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@aws-sdk/rds-signer':
+        specifier: ^3.750.0
+        version: 3.750.0
       '@payloadcms/db-postgres':
         specifier: latest
         version: 3.24.0(@types/react@19.0.7)(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react@19.0.0)
@@ -53,6 +56,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.0.2
         version: 1.1.2(@types/react@19.0.7)(react@19.0.0)
+      '@vercel/functions':
+        specifier: ^2.0.0
+        version: 2.0.0(@aws-sdk/credential-provider-web-identity@3.750.0)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -289,6 +295,10 @@ packages:
     resolution: {integrity: sha512-OH68BRF0rt9nDloq4zsfeHI0G21lj11a66qosaljtEP66PWm7tQ06feKbFkXHT5E1K3QhJW3nVyK8v2fEBY5fg==}
     engines: {node: '>=18.0.0'}
 
+  '@aws-sdk/rds-signer@3.750.0':
+    resolution: {integrity: sha512-Mm4jUB+Mq2c+qCfNDRAU2QT4hGFdy8lUd24586Z28owIllQcbG4au5Ypcwi1tTtBN9C9Vvoomdpx88quKleTIA==}
+    engines: {node: '>=18.0.0'}
+
   '@aws-sdk/region-config-resolver@3.734.0':
     resolution: {integrity: sha512-Lvj1kPRC5IuJBr9DyJ9T9/plkh+EfKLy+12s/mykOy1JaKHDpvj+XGy2YO6YgYVOb8JFtaqloid+5COtje4JTQ==}
     engines: {node: '>=18.0.0'}
@@ -311,6 +321,10 @@ packages:
 
   '@aws-sdk/util-endpoints@3.743.0':
     resolution: {integrity: sha512-sN1l559zrixeh5x+pttrnd0A3+r34r0tmPkJ/eaaMaAzXqsmKU/xYre9K3FNnsSS1J1k4PEfk/nHDTVUgFYjnw==}
+    engines: {node: '>=18.0.0'}
+
+  '@aws-sdk/util-format-url@3.734.0':
+    resolution: {integrity: sha512-TxZMVm8V4aR/QkW9/NhujvYpPZjUYqzLwSge5imKZbWFR806NP7RMwc5ilVuHF/bMOln/cVHkl42kATElWBvNw==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/util-locate-window@3.723.0':
@@ -1990,6 +2004,15 @@ packages:
   '@typescript-eslint/visitor-keys@8.24.1':
     resolution: {integrity: sha512-EwVHlp5l+2vp8CoqJm9KikPZgi3gbdZAtabKT9KPShGeOcJhsv4Zdo3oc8T8I0uKEmYoU4ItyxbptjF08enaxg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@vercel/functions@2.0.0':
+    resolution: {integrity: sha512-BSwIihLHoV18gerKZJyGuqd3rtaYM6rJvET1kOwKktshucyaHXTJel7Cxegs+sdX0NZqsX4LO2MFnMU2jG01Cw==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@aws-sdk/credential-provider-web-identity': '*'
+    peerDependenciesMeta:
+      '@aws-sdk/credential-provider-web-identity':
+        optional: true
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -4251,6 +4274,7 @@ packages:
 
   strnum@1.1.0:
     resolution: {integrity: sha512-a4NGarQIHRhvr+k8VXaHg6TMU6f3YEmi5CAb6RYgX2gwbGDBNMbr6coC6g0wmif5dLjHtmHUVD/qOxPq7D0tnQ==}
+    deprecated: This version introduces bugs
 
   strtok3@8.1.0:
     resolution: {integrity: sha512-ExzDvHYPj6F6QkSNe/JxSlBxTh3OrI6wrAIz53ulxo1c4hBJ1bT9C/JrAthEKHWG9riVH3Xzg7B03Oxty6S2Lw==}
@@ -5111,6 +5135,23 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
+  '@aws-sdk/rds-signer@3.750.0':
+    dependencies:
+      '@aws-crypto/sha256-browser': 5.2.0
+      '@aws-crypto/sha256-js': 5.2.0
+      '@aws-sdk/credential-providers': 3.750.0
+      '@aws-sdk/util-format-url': 3.734.0
+      '@smithy/config-resolver': 4.0.1
+      '@smithy/hash-node': 4.0.1
+      '@smithy/invalid-dependency': 4.0.1
+      '@smithy/node-config-provider': 4.0.1
+      '@smithy/protocol-http': 5.0.1
+      '@smithy/signature-v4': 5.0.1
+      '@smithy/types': 4.1.0
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - aws-crt
+
   '@aws-sdk/region-config-resolver@3.734.0':
     dependencies:
       '@aws-sdk/types': 3.734.0
@@ -5154,6 +5195,13 @@ snapshots:
       '@aws-sdk/types': 3.734.0
       '@smithy/types': 4.1.0
       '@smithy/util-endpoints': 3.0.1
+      tslib: 2.8.1
+
+  '@aws-sdk/util-format-url@3.734.0':
+    dependencies:
+      '@aws-sdk/types': 3.734.0
+      '@smithy/querystring-builder': 4.0.1
+      '@smithy/types': 4.1.0
       tslib: 2.8.1
 
   '@aws-sdk/util-locate-window@3.723.0':
@@ -6997,6 +7045,10 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.24.1
       eslint-visitor-keys: 4.2.0
+
+  '@vercel/functions@2.0.0(@aws-sdk/credential-provider-web-identity@3.750.0)':
+    optionalDependencies:
+      '@aws-sdk/credential-provider-web-identity': 3.750.0
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:

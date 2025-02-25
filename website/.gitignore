@@ -61,3 +61,4 @@ src/seed/data/articles-*/
 src/seed/data/listicles/*
 src/seed/data/hero-video-images/*
 src/seed/data/hero-video-images/
+.env*.local

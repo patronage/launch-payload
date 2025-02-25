@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { getDatabaseConfig } from './utilities/database'
 
 import sharp from 'sharp' // sharp-import
 import path from 'path'
@@ -60,8 +61,10 @@ export default buildConfig({
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: postgresAdapter({
+    push: process.env.DB_PUSH === 'true', // Defaults to false if not set to 'true'
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      ...getDatabaseConfig(),
+      max: 10, // Connection pool size
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
