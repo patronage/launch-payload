@@ -9,6 +9,7 @@ export async function GET() {
   const RDS_HOSTNAME = process.env.RDS_HOSTNAME!
   const RDS_DATABASE = process.env.RDS_DATABASE!
   const RDS_USERNAME = process.env.RDS_USERNAME!
+  const RDS_CA_PEM = process.env.RDS_CA_PEM!
   const AWS_REGION = process.env.AWS_REGION!
   const AWS_ROLE_ARN = process.env.AWS_ROLE_ARN!
 
@@ -46,6 +47,7 @@ export async function GET() {
       credentials: credentialsProvider,
       region: AWS_REGION,
       port: RDS_PORT,
+
       hostname: RDS_HOSTNAME,
       username: RDS_USERNAME,
     })
