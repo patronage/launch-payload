@@ -1,6 +1,7 @@
 import { awsCredentialsProvider } from '@vercel/functions/oidc'
 import { Signer } from '@aws-sdk/rds-signer'
 import { Pool } from 'pg'
+import type { PoolClient } from 'pg'
 
 // Export the route handler
 export async function GET() {
@@ -82,21 +83,28 @@ export async function GET() {
       console.log('Connected successfully to database')
       const { rows } = await client.query('SELECT current_database() as db')
       return Response.json({ status: 'connected', database: rows[0].db })
-    } catch (dbError) {
+    } catch (dbError: unknown) {
       console.error('Database connection error:', dbError)
+      const error = dbError as { message?: string; code?: string }
       return Response.json(
         {
           error: 'Database connection failed',
-          details: dbError.message,
-          code: dbError.code,
+          details: error.message || 'Unknown error',
+          code: error.code,
         },
         { status: 500 },
       )
     } finally {
       if (client) client.release()
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Unexpected error:', error)
-    return Response.json({ error: 'Server error', details: error.message }, { status: 500 })
+    return Response.json(
+      {
+        error: 'Server error',
+        details: (error as { message?: string }).message || 'Unknown error',
+      },
+      { status: 500 },
+    )
   }
 }

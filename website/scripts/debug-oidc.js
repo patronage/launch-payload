@@ -37,6 +37,7 @@ try {
   const expectedSubPatterns = [
     'owner:patronage:project:launch-payload:environment:production',
     'owner:patronage:project:launch-payload:environment:preview',
+    'owner:patronage:project:launch-payload:environment:development',
   ]
 
   const audMatch = claims.aud === expectedAud
