@@ -1,0 +1,63 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.local.sample
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# media upload dirs locally
+public/media
+src/public/media
+
+# Sitemap/robots (auto-generated)
+sitemap*.xml
+robots.txt
+
+# build
+src/scripts/legacy-redirects.json
+
+## seed data beyond samples
+**/validation-results/**
+src/seed/data/articles
+src/seed/data/articles-patch/
+src/seed/data/articles/!articles-batch-*001.json
+src/seed/data/articles/!articles-batch-*002.json
+src/seed/data/articles-*/
+src/seed/data/listicles/*
+src/seed/data/hero-video-images/*
+src/seed/data/hero-video-images/

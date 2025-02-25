@@ -1,0 +1,42 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Next Dev",
+      "type": "shell",
+      "command": "cd website && pnpm dev"
+    },
+    {
+      "label": "Next Build",
+      "type": "shell",
+      "command": "cd website && pnpm build"
+    },
+    {
+      "label": "Next PNPM Install",
+      "type": "shell",
+      "command": "cd website && pnpm install"
+    },
+    // {
+    //   "label": "Postgres Docker Recreate",
+    //   "type": "shell",
+    //   "command": "cd website && docker-compose -f docker-compose.yml -f docker-compose.local.yml up --build --force-recreate --no-deps"
+    // },
+    {
+      "label": "Postgres Docker Recreate",
+      "type": "shell",
+      "command": "cd website && docker-compose -p launch-payload-db up --build --force-recreate --no-deps"
+    },
+    {
+      "label": "Postgres Composer Install",
+      "type": "shell",
+      "command": "cd website && composer install --ignore-platform-reqs"
+    },
+    {
+      "label": "Postgres Composer Update",
+      "type": "shell",
+      "command": "cd website && composer update --ignore-platform-reqs"
+    }
+  ]
+}

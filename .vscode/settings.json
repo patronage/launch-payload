@@ -1,0 +1,46 @@
+{
+  // Global default is to use VS Code prettier plugin
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // https://github.com/prettier/plugin-php?tab=readme-ov-file#visual-studio-code
+  "prettier.documentSelectors": [
+    "**/*.{js,jsx,ts,tsx,vue,html,css,scss,less,json,md,mdx,graphql,yaml,yml,php}"
+  ],
+
+  // eslint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.workingDirectories": ["website"],
+
+  // graphql
+  // "graphql-config.load.filepath": "./website/graphql.config.ts",
+  // "graphql.validateAgainstSchema": {
+  //   "graphql": false
+  // },
+
+  // tailwind
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
+  // cva support
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
+
+  // As of version 14, stylelint needs to be told to validate SCSS
+  // "stylelint.validate": ["css", "scss"],
+
+  // "typescript.tsdk": "filmlinc/node_modules/typescript/lib",
+  // "typescript.enablePromptUseWorkspaceTsdk": true
+}
